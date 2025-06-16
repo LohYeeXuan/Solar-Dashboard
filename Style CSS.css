@@ -1,0 +1,169 @@
+/* Root variables for dark mode theme */
+:root {
+  --bg: #121212;
+  --text: #eeeeee;
+  --card-bg: #1e1e1e;
+  --sidebar-bg: #1a1a1a;
+  --border: #333;
+}
+
+/* General body styling */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* App layout: sidebar + main area */
+.app {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: row;
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 200px;
+  background: var(--sidebar-bg);
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin-bottom: 10px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li a {
+  color: var(--text);
+  text-decoration: none;
+  display: block;
+  padding: 8px 0;
+}
+
+/* Topbar/header styles */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--card-bg);
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Right side of topbar (e.g., avatar) */
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Avatar circle placeholder */
+.avatar {
+  width: 40px;
+  height: 40px;
+  background: #888;
+  border-radius: 50%;
+}
+
+/* Main content area */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Content padding */
+.content {
+  padding: 20px;
+}
+
+/* Site switcher section spacing */
+.site-switcher {
+  margin-bottom: 20px;
+}
+
+/* Grid layout for cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* Card component style */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+/* Status indicator (colored dot) */
+.status-indicator {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* Status colors */
+.status-healthy { background: green; }
+.status-maintenance { background: yellow; }
+.status-fault { background: red; }
+
+/* Button styling */
+button {
+  padding: 6px 12px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Input and dropdown styling */
+input, select {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+
+/* Save message style */
+.save-message {
+  color: green;
+  margin-top: 10px;
+}
+
+/* Skeleton loading animation style */
+.skeleton {
+  background: #333;
+  border-radius: 4px;
+  height: 1em;
+  animation: shimmer 1.5s infinite linear;
+}
+
+/* Shimmer animation for skeletons */
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: 200px 0; }
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+}
+
+/* Only show active section (hide others) */
+section { display: none; }
+section.active { display: block; }
